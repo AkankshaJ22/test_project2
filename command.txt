@@ -1,0 +1,407 @@
+1. created 2 directory project1 and project2 and created remote repository test_project2
+=================================/////==================================================
+
+2. Switch to project1
+ cd project1
+=================================/////==================================================
+
+3. Switch to a new branch - 'staging'. 
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1
+$ git init
+Initialized empty Git repository in C:/Users/Akansha/Desktop/git_exercise/new/testProject/project1/.git/
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git remote add origin https://github.com/AkankshaJ22/test_project2.git
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ touch .gitignore
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git add -A
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit  -m "initial commit"
+[master (root-commit) 5af7b95] initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 .gitignore
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git branch staging
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git checkout staging
+Switched to branch 'staging'
+
+=================================/////==================================================
+
+4. Add a file in it - 'test1' and add content to it 'This is first commit'.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git branch
+  master
+* staging
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ touch test1.html
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ code .
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git status
+On branch staging
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test1.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git add -A
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git commit -m "This is first commit"
+[staging f6f4b7e] This is first commit
+ 1 file changed, 12 insertions(+)
+ create mode 100644 test1.html
+=================================/////==================================================
+
+5. Push it to github.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git push --set-upstream origin staging
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 662 bytes | 220.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/AkankshaJ22/test_project2.git
+ * [new branch]      staging -> staging
+Branch 'staging' set up to track remote branch 'staging' from 'origin'.
+=================================/////==================================================
+
+6. Move to folder project2.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ cd ..
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject
+$ cd project2
+=================================/////==================================================
+
+7. Clone the repo in project2.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2
+$ git clone https://github.com/AkankshaJ22/test_project2.git
+Cloning into 'test_project2'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
+Receiving objects: 100% (6/6), done.
+=================================/////==================================================
+
+8. Switch to staging.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2
+$ cd test_project2
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2/test_project2 (staging)
+$ git checkout staging
+Already on 'staging'
+Your branch is up to date with 'origin/staging'.
+=================================/////==================================================
+
+9. Change the text in file 'test1' to 'This is second commit'.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2/test_project2 (staging)
+$ git add -A
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2/test_project2 (staging)
+$ git commit -m "this is second commit"
+[staging 709342f] this is second commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+=================================/////==================================================
+
+10. Commit and push to remote branch.
+ Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2/test_project2 (staging)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 344 bytes | 114.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/AkankshaJ22/test_project2.git
+   f6f4b7e..709342f  staging -> staging
+
+=================================/////==================================================
+
+11. Move to project1.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2/test_project2 (staging)
+$ cd ..
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2
+$ cd ..
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject
+$ cd project1
+=================================/////==================================================
+
+12. Switch to staging branch.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git checkout staging
+Already on 'staging'
+Your branch is up to date with 'origin/staging'.
+=================================/////==================================================
+
+13. Change the text in file 'test1' to 'This is third commit'.
+14. Commit and push to remote branch. (Explain what happened here).
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git status
+On branch staging
+Your branch is up to date with 'origin/staging'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test1.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git commit -a -m "This is third commit "
+[staging ac64fea] This is third commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+=================================/////==================================================
+
+15. Switch to master.
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git branch
+  master
+* staging
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (staging)
+$ git checkout master
+Switched to branch 'master'
+
+=================================/////==================================================
+
+16. Merge staging branch into master
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git merge staging
+Updating 5af7b95..ac64fea
+Fast-forward
+ test1.html | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+ create mode 100644 test1.html
+=================================/////==================================================
+
+17. Create a new branch testing.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git branch testing
+=================================/////==================================================
+
+18. Change the text to 'A is an alphabet' and commit.
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git branch
+* master
+  staging
+  testing
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git checkout testing
+Switched to branch 'testing'
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git commit -a -m "A text in testing"
+[testing 3364c57] A text in testing
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+=================================/////==================================================
+
+19. Repeat the 'step 18' seven times and each time update the alphabet 'A' to 'B' to 'C' etc.(Don't forget to commit the change everytime)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git commit -a -m "B text in testing"
+[testing 0b94009] B text in testing
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git commit -a -m "C text in testing"
+[testing 29f52ed] C text in testing
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git commit -a -m "D text in testing"
+[testing 73166ce] D text in testing
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git commit -a -m "E text in testing"
+[testing 538c04b] E text in testing
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git commit -a -m "F text in testing"
+[testing 574ecfb] F text in testing
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git commit -a -m "G text in testing"
+[testing 5c42a42] G text in testing
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git commit -a -m "H text in testing"
+[testing f04ba51] H text in testing
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ 
+=================================/////==================================================
+
+20. Push the branch to github.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git push --set-upstream origin testing
+Enumerating objects: 33, done.
+Counting objects: 100% (33/33), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (31/31), done.
+Writing objects: 100% (33/33), 3.00 KiB | 614.00 KiB/s, done.
+Total 33 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (9/9), done.
+remote:
+remote: Create a pull request for 'testing' on GitHub by visiting:
+remote:      https://github.com/AkankshaJ22/test_project2/pull/new/testing
+remote:
+To https://github.com/AkankshaJ22/test_project2.git
+ * [new branch]      testing -> testing
+Branch 'testing' set up to track remote branch 'testing' from 'origin'.
+
+=================================/////==================================================
+
+21. Checkout to master.
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (testing)
+$ git checkout master
+Switched to branch 'master'
+
+=================================/////==================================================
+
+22. Change the text '1 is a number' and commit.
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit -a -m "1 is number in master"
+[master 6246280] 1 is number in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+=================================/////==================================================
+
+23. Repeat the 'step 22' seven times and each time update the number '1' to '2' to '3' etc.(Don't forget to commit the change everytime)
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit -a -m "2 is number in master"
+[master 5b59e12] 2 is number in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit -a -m "3 is number in master"
+[master edd48f9] 3 is number in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit -a -m "4 is number in master"
+[master 1e07eea] 4 is number in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit -a -m "5 is number in master"
+[master 50ac4db] 5 is number in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit -a -m "6 is number in master"
+[master 990b97e] 6 is number in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit -a -m "7 is number in master"
+[master 5f33601] 7 is number in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git commit -a -m "8 is number in master"
+[master c511cfb] 8 is number in master
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+=================================/////==================================================
+
+24. Push master branch to github.
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$  git push --set-upstream origin master
+
+Enumerating objects: 24, done.
+Counting objects: 100% (24/24), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (22/22), 2.08 KiB | 710.00 KiB/s, done.
+Total 22 (delta 8), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (8/8), completed with 1 local object.
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/AkankshaJ22/test_project2/pull/new/master
+remote:
+To https://github.com/AkankshaJ22/test_project2.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+=================================/////==================================================
+
+25. Now, rebase testing into master(and don't push the new master and testing branch)
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ git rebase testing
+error: could not apply 6246280... 1 is number in master
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 6246280... 1 is number in master
+Auto-merging test1.html
+CONFLICT (content): Merge conflict in test1.html
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master|REBASE 1/8)
+$ git rebase --continue
+Successfully rebased and updated refs/heads/master.
+
+=================================/////==================================================
+
+26. Move to project 2
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project1 (master)
+$ cd ..
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject
+$ cd project2
+
+Akansha@DESKTOP-VF677LJ MINGW64 ~/Desktop/git_exercise/new/testProject/project2
+$ cd test_project2
+
+=================================/////==================================================
+
+steps 27,28,29 is not valid as testing and master branch on project2 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
